@@ -18,7 +18,8 @@
           "apps/syncron-sdk/src/assets"
         ],
         "styles": ["apps/syncron-sdk/src/styles.scss"],
-        "scripts": []
+        "scripts": [],
+        "localize": ["fr"]
       },
       "configurations": {
         "production": {
@@ -49,6 +50,9 @@
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
+        },
+        "fr": {
+          "localize": ["fr"]
         }
       },
       "defaultConfiguration": "production"
@@ -61,6 +65,9 @@
         },
         "development": {
           "browserTarget": "syncron-sdk:build:development"
+        },
+        "fr": {
+          "browserTarget": "syncron-sdk:build:fr"
         }
       },
       "defaultConfiguration": "development"
@@ -116,6 +123,12 @@
           "quiet": true
         }
       }
+    }
+  },
+  "i18n": {
+    "sourceLocale": "en-US",
+    "locales": {
+      "fr": "apps/syncron-sdk/src/locale/messages.fr.json"
     }
   },
   "tags": []
