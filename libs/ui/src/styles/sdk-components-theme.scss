@@ -1,0 +1,74 @@
+/* Example of what this file will contain */
+
+$primary-palette: (
+  50: #e2e9f0,
+  100: #b6c9da,
+  200: #85a5c1,
+  300: #5480a8,
+  400: #2f6596,
+  500: #0a4a83,
+  600: #09437b,
+  700: #073a70,
+  800: #053266,
+  900: #032253,
+  contrast: (
+    50: #001a33de,
+    100: #001a33de,
+    200: #001a33de,
+    300: #001a33de,
+    400: #001a33de,
+    500: #ffffffde,
+    600: #ffffffde,
+    700: #ffffffde,
+    800: #ffffffde,
+    900: #ffffffde,
+  )
+);
+$accent-palette: (
+  50: #fbefe2,
+  100: #f5d7b8,
+  200: #efbd88,
+  300: #e8a258,
+  400: #de7a11,
+  500: #de7a11,
+  600: #da720f,
+  700: #d5670c,
+  800: #d15d0a,
+  900: #c84a05,
+  contrast: (
+    50: #001a33de,
+    100: #001a33de,
+    200: #001a33de,
+    300: #001a33de,
+    400: #001a33de,
+    500: #ffffffde,
+    600: #ffffffde,
+    700: #ffffffde,
+    800: #ffffffde,
+    900: #ffffffde,
+  )
+);
+$warn-palette: (
+  50: #b00020,
+  100: #b00020,
+  200: #b00020,
+  300: #b00020,
+  400: #b00020,
+  500: #b00020,
+  600: #b00020,
+  700: #b00020,
+  800: #b00020,
+  900: #b00020,
+  contrast: (
+    50: #ffffffde,
+    100: #ffffffde,
+    200: #ffffffde,
+    300: #ffffffde,
+    400: #ffffffde,
+    500: #ffffffde,
+    600: #ffffffde,
+    700: #ffffffde,
+    800: #ffffffde,
+    900: #ffffffde,
+  )
+);
