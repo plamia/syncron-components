@@ -12,7 +12,9 @@
     "lib:storybook": "nx run ui:storybook",
     "serve:demo": "nx run syncron-sdk:serve",
     "extract": "ng extract-i18n --format=json --output-path apps/syncron-sdk/src/locale",
-    "i18nj": "node_modules/.bin/localize-extract -s dist/**/*.js -f json -o apps/syncron-sdk/src/locale/messages.en.json"
+    "i18nj": "node_modules/.bin/localize-extract -s dist/**/*.js -f json -o apps/syncron-sdk/src/locale/messages.en.json",
+    "lint:syncron-sdk": "nx lint syncron-sdk",
+    "lint:ui": "nx lint ui"
   },
   "packageManager": "yarn@3.1.1",
   "private": true,
