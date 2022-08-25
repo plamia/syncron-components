@@ -54,10 +54,11 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "localize": ["en-US"]
             },
             "fr": {
-              "localize": ["fr"]
+              "localize": ["fr-FR"]
             }
           },
           "defaultConfiguration": "production"
@@ -138,7 +139,37 @@
       },
       "tags": []
     },
-    "syncron-sdk-e2e": "apps/syncron-sdk-e2e",
+    "syncron-sdk-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "apps/syncron-sdk-e2e/src",
+      "root": "apps/syncron-sdk-e2e",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/syncron-sdk-e2e/cypress.config.ts",
+            "devServerTarget": "syncron-sdk:serve:development",
+            "testingType": "e2e",
+            "browser": "chrome"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "syncron-sdk:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/syncron-sdk-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["syncron-sdk"]
+    },
     "ui": {
       "projectType": "library",
       "sourceRoot": "libs/ui/src",
@@ -147,21 +178,16 @@
       "targets": {
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui"
-          ],
+          "outputs": ["coverage/libs/ui"],
           "options": {
             "jestConfig": "libs/ui/jest.config.ts",
             "passWithNoTests": true
-          } 
+          }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui/**/*.ts",
-              "libs/ui/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui/**/*.ts", "libs/ui/**/*.html"]
           }
         },
         "storybook": {
@@ -182,9 +208,7 @@
         },
         "build-storybook": {
           "executor": "@storybook/angular:build-storybook",
-          "outputs": [
-            "{options.outputDir}"
-          ],
+          "outputs": ["{options.outputDir}"],
           "options": {
             "outputDir": "dist/storybook/ui",
             "configDir": "libs/ui/.storybook",
@@ -202,6 +226,36 @@
       },
       "tags": []
     },
-    "ui-e2e": "apps/ui-e2e"
+    "ui-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
+      "sourceRoot": "apps/ui-e2e/src",
+      "root": "apps/ui-e2e",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ui-e2e/cypress.config.ts",
+            "devServerTarget": "ui:storybook",
+            "testingType": "e2e",
+            "browser": "chrome"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "ui:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["ui"]
+    }
   }
 }
