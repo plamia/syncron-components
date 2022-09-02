@@ -1,0 +1,21 @@
+<em *ngIf="loading">
+  <ng-container *ngIf="overlay; else progressSpinner">
+    <div class="overlay">
+      <div class="center">
+        <ng-template [ngTemplateOutlet]="progressSpinner"></ng-template>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #progressSpinner>
+    <div class="spinner">
+      <p>{{ message }}</p>
+      <mat-spinner
+        [diameter]="diameter"
+        [mode]="mode"
+        [color]="color"
+        [strokeWidth]="strokeWidth"
+        [value]="value">
+      </mat-spinner>
+    </div>
+  </ng-template>
+</em>

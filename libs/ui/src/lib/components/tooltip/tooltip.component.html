@@ -1,6 +1,12 @@
-<div>
-  <h2>Tooltip</h2>
-  <mat-slider class="testClass" aria-label="unit(s)"></mat-slider>
-  <hr>
-  <p matTooltip="Test">Test</p>
-</div>
+<span
+  class="tooltip-wrapper"
+  #tooltip="matTooltip"
+  [matTooltipDisabled]="disabled"
+  [matTooltipHideDelay]="hideDelay"
+  [matTooltip]="message"
+  [matTooltipPosition]="position"
+  [matTooltipShowDelay]="showDelay"
+  [matTooltipClass]="tooltipClass"
+>
+  <ng-content> </ng-content>
+</span>

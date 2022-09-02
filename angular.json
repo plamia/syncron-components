@@ -58,7 +58,7 @@
               "localize": ["en-US"]
             },
             "fr": {
-              "localize": ["fr-FR"]
+              "localize": ["fr"]
             }
           },
           "defaultConfiguration": "production"

@@ -1,0 +1,43 @@
+<div class="container" #container>
+  <mat-toolbar color="white">
+    <mat-toolbar-row>
+      <a href="/" class="logo">
+        <img [src]="imageLogo?.src" [alt]="imageLogo?.alt">
+      </a>
+      <span class="spacer"></span>
+      <ng-container *ngIf="!isSticky" [ngTemplateOutlet]="iconsListTemplate">
+      </ng-container>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row [ngClass]="{ sticky: false }">
+      <div class="nav">
+        <a
+          mat-button
+          *ngFor="let page of pageLinks"
+          (click)="onNavItemClick(page.path)">
+          {{ page.label }}
+        </a>
+      </div>
+      <span class="spacer"></span>
+      <ng-container *ngIf="isSticky" [ngTemplateOutlet]="iconsListTemplate">
+      </ng-container>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+
+<ng-template #iconsListTemplate>
+  <div class="icons">
+    <ng-container *ngIf="iconsList">
+      <ng-container *ngFor="let icon of iconsList; let i = index">
+        <syncron-sdk-components-tooltip [message]="icon.tooltip" position="below">
+          <a class="icon-container" href="/" target="_blank">
+            <mat-icon aria-hidden="false" class="icon">
+              {{ icon.name }}
+            </mat-icon>
+          </a>
+        </syncron-sdk-components-tooltip>
+        <div class="divider" *ngIf="i !== iconsList.length - 1"></div>
+      </ng-container>
+    </ng-container>
+  </div>
+</ng-template>
